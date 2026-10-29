@@ -41,6 +41,8 @@ public class OrdenesController {
             @RequestParam @NotBlank(message = "El número de documento es obligatorio")
             @Pattern(regexp = "^[0-9]{5,12}$", message = "Formato de documento inválido") String numeroDocumento,
             @RequestHeader(value = "Authorization", required = false) String authHeader) {
+
+
         logger.info("Iniciando consulta de órdenes para tipoDocumento: {}", tipoDocumento);
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
