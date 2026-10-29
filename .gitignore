@@ -4,6 +4,7 @@
 # Gradle and IntelliJ IDEA
 .gradle/
 .idea/
+build/
 
 # Log file
 *.log

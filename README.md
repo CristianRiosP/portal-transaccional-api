@@ -104,7 +104,7 @@ Respuesta Exitosa (200 OK):
 
 ## Diagramas
 
-```mermaid
+```text
 ┌─────────────────────────┐
 │      Cliente HTTP       │
 └────────────┬────────────┘
