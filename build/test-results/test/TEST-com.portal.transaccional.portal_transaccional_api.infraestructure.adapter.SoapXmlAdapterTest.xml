@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.portal.transaccional.portal_transaccional_api.infraestructure.adapter.SoapXmlAdapterTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-29T11:06:49.739Z" hostname="CRISTIAN-VICTUS" time="0.01">
+  <properties/>
+  <testcase name="adaptarReturnsEmptyListForNullOrBlankXml()" classname="com.portal.transaccional.portal_transaccional_api.infraestructure.adapter.SoapXmlAdapterTest" time="0.004"/>
+  <testcase name="adaptarMapsAndTrimsMultipleOrdersFromXml()" classname="com.portal.transaccional.portal_transaccional_api.infraestructure.adapter.SoapXmlAdapterTest" time="0.003"/>
+  <testcase name="adaptarReturnsEmptyListWhenXmlContainsNoOrders()" classname="com.portal.transaccional.portal_transaccional_api.infraestructure.adapter.SoapXmlAdapterTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

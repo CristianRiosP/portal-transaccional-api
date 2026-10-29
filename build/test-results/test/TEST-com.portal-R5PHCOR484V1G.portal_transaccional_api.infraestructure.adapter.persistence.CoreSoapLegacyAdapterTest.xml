@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.portal.transaccional.portal_transaccional_api.infraestructure.adapter.persistence.CoreSoapLegacyAdapterTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-29T11:06:49.750Z" hostname="CRISTIAN-VICTUS" time="0.067">
+  <properties/>
+  <testcase name="obtenerOrdenesPorDocumentoLoadsAndAdaptsLegacyXml()" classname="com.portal.transaccional.portal_transaccional_api.infraestructure.adapter.persistence.CoreSoapLegacyAdapterTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.portal.transaccional.portal_transaccional_api.application.ConsultarOrdenesUseCaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-29T11:06:49.525Z" hostname="CRISTIAN-VICTUS" time="0.213">
+  <properties/>
+  <testcase name="ejecutarDelegatesToCorePortAndReturnsItsOrders()" classname="com.portal.transaccional.portal_transaccional_api.application.ConsultarOrdenesUseCaseTest" time="0.036"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
