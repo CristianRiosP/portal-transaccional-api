@@ -1,4 +1,4 @@
-package com.portal.transaccional.portal_transaccional_api.infraestructure.in.rest.dto;
+package com.portal.transaccional.portal_transaccional_api.infraestructure.in.dto;
 
 import com.portal.transaccional.portal_transaccional_api.domain.model.Orden;
 

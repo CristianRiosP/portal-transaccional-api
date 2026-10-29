@@ -1,8 +1,9 @@
-package com.portal.transaccional.portal_transaccional_api.infraestructure.in.rest;
+package com.portal.transaccional.portal_transaccional_api.infraestructure.in.controller;
 
 import com.portal.transaccional.portal_transaccional_api.application.ConsultarOrdenesUseCase;
 import com.portal.transaccional.portal_transaccional_api.domain.model.Orden;
-import com.portal.transaccional.portal_transaccional_api.infraestructure.in.rest.dto.OrdenResponseDto;
+import com.portal.transaccional.portal_transaccional_api.domain.port.LoggerPort;
+import com.portal.transaccional.portal_transaccional_api.infraestructure.in.dto.OrdenResponseDto;
 import com.portal.transaccional.portal_transaccional_api.infraestructure.security.JwtService;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -25,10 +26,12 @@ public class OrdenesController {
 
     private final ConsultarOrdenesUseCase consultarOrdenesUseCase;
     private final JwtService jwtService;
+    private final LoggerPort logger;
 
-    public OrdenesController(ConsultarOrdenesUseCase useCase, JwtService jwtService) {
+    public OrdenesController(ConsultarOrdenesUseCase useCase, JwtService jwtService, LoggerPort logger) {
         this.consultarOrdenesUseCase = useCase;
         this.jwtService = jwtService;
+        this.logger = logger;
     }
 
     @GetMapping("/ordenes")
@@ -38,6 +41,7 @@ public class OrdenesController {
             @RequestParam @NotBlank(message = "El número de documento es obligatorio")
             @Pattern(regexp = "^[0-9]{5,12}$", message = "Formato de documento inválido") String numeroDocumento,
             @RequestHeader(value = "Authorization", required = false) String authHeader) {
+        logger.info("Iniciando consulta de órdenes para tipoDocumento: {}", tipoDocumento);
 
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             return ResponseEntity.status(401).build();
@@ -62,7 +66,7 @@ public class OrdenesController {
                 .map(orden -> new OrdenResponseDto.OrdenItemDto(
                         orden.id(), orden.estado(), orden.fecha()))
                 .toList();
-
+        logger.info("Consulta finalizada con éxito.");
         return ResponseEntity.ok(new OrdenResponseDto(itemDtos));
     }
 

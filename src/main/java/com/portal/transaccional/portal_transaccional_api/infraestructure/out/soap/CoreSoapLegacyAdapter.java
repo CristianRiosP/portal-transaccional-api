@@ -1,4 +1,4 @@
-package com.portal.transaccional.portal_transaccional_api.infraestructure.adapter.persistence;
+package com.portal.transaccional.portal_transaccional_api.infraestructure.out.soap;
 import com.portal.transaccional.portal_transaccional_api.SOAPLegacy.LegacyXmlDataLake;
 import com.portal.transaccional.portal_transaccional_api.domain.model.Orden;
 import com.portal.transaccional.portal_transaccional_api.domain.port.CorePort;

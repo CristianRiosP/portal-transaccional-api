@@ -3,6 +3,7 @@ package com.portal.transaccional.portal_transaccional_api.infraestructure.adapte
 import com.portal.transaccional.portal_transaccional_api.SOAPLegacy.LegacyXmlDataLake;
 import com.portal.transaccional.portal_transaccional_api.domain.model.Orden;
 import com.portal.transaccional.portal_transaccional_api.infraestructure.adapter.SoapXmlAdapter;
+import com.portal.transaccional.portal_transaccional_api.infraestructure.out.soap.CoreSoapLegacyAdapter;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

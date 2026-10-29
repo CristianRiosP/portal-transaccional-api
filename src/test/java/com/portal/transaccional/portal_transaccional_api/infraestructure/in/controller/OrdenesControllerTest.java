@@ -1,8 +1,9 @@
-package com.portal.transaccional.portal_transaccional_api.infraestructure.in.rest;
+package com.portal.transaccional.portal_transaccional_api.infraestructure.in.controller;
 
 import com.portal.transaccional.portal_transaccional_api.application.ConsultarOrdenesUseCase;
 import com.portal.transaccional.portal_transaccional_api.domain.model.Orden;
-import com.portal.transaccional.portal_transaccional_api.infraestructure.in.rest.dto.OrdenResponseDto;
+import com.portal.transaccional.portal_transaccional_api.domain.port.LoggerPort;
+import com.portal.transaccional.portal_transaccional_api.infraestructure.in.dto.OrdenResponseDto;
 import com.portal.transaccional.portal_transaccional_api.infraestructure.security.JwtService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,9 +28,12 @@ class OrdenesControllerTest {
     @Mock
     private JwtService jwtService;
 
+    @Mock
+    private LoggerPort logger;
+
     @Test
     void consultarOrdenesReturnsUnauthorizedWhenAuthorizationHeaderIsMissingOrInvalid() {
-        OrdenesController controller = new OrdenesController(useCase, jwtService);
+        OrdenesController controller = new OrdenesController(useCase, jwtService,logger);
 
         ResponseEntity<OrdenResponseDto> missingHeader =
                 controller.consultarOrdenes("CC", "123456", null);
@@ -43,7 +47,7 @@ class OrdenesControllerTest {
 
     @Test
     void consultarOrdenesReturnsForbiddenWhenTokenDocumentDoesNotMatchRequest() {
-        OrdenesController controller = new OrdenesController(useCase, jwtService);
+        OrdenesController controller = new OrdenesController(useCase, jwtService,logger);
         when(jwtService.extraerDocumentoDelToken("token")).thenReturn("654321");
         when(jwtService.extraerTipoDocumentoDelToken("token")).thenReturn("CC");
 
@@ -56,7 +60,7 @@ class OrdenesControllerTest {
 
     @Test
     void consultarOrdenesReturnsForbiddenWhenTokenDocumentTypeDoesNotMatchRequest() {
-        OrdenesController controller = new OrdenesController(useCase, jwtService);
+        OrdenesController controller = new OrdenesController(useCase, jwtService,logger);
         when(jwtService.extraerDocumentoDelToken("token")).thenReturn("123456");
         when(jwtService.extraerTipoDocumentoDelToken("token")).thenReturn("CE");
 
@@ -69,7 +73,7 @@ class OrdenesControllerTest {
 
     @Test
     void consultarOrdenesReturnsMappedOrdersWhenTokenMatchesRequest() {
-        OrdenesController controller = new OrdenesController(useCase, jwtService);
+        OrdenesController controller = new OrdenesController(useCase, jwtService, logger);
         List<Orden> ordenes = List.of(
                 new Orden("ORD-1", "APROBADO", "2026-10-29"),
                 new Orden("ORD-2", "EN_PROCESO", "2026-10-28")
